@@ -21,6 +21,15 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+enum WORKSPACEINDEX : int{
+    X ,
+    Y ,
+    Z ,
+    THETA,
+    PHI,
+    PSI
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -45,7 +54,12 @@ public:
     /// Apply an incremental movement
     void incrementalMove(int id, double sense);
 
+    void frameUpdate();
+
+    void workSapceUpdate();
+
 private slots:
+    /*
     void on_pushButton_Txm_clicked();
 
     void on_pushButton_Txp_clicked();
@@ -69,6 +83,7 @@ private slots:
     void on_pushButton_Rzm_clicked();
 
     void on_pushButton_Rzp_clicked();
+    */
 
     void on_comboBox_rotationDisplayType_currentIndexChanged(int index);
 
@@ -105,6 +120,20 @@ private slots:
     void on_pushButton_moveToNextPoint_clicked();
 
     void on_pushButton_updatePointsToMemory_clicked();
+
+    void on_workSpace_X_valueChanged(int value);
+
+
+
+    void on_workSpace_Y_valueChanged(int value);
+
+    void on_workSpace_Z_valueChanged(int value);
+
+    void on_workSpace_theta_valueChanged(int value);
+
+    void on_workSpace_phi_valueChanged(int value);
+
+    void on_workSpace_psi_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
